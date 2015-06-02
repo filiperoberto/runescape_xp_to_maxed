@@ -11,6 +11,7 @@ $(document).ready(function(){
 			return false;
 
 		var xp99 =13034431;	
+		var xp120 = 104273167;
 		results.html('');
 
 		$.getJSON('runescape.php?lowercase=yes&user='+rsName,function(data){
@@ -18,8 +19,13 @@ $(document).ready(function(){
 
 			for(var key in data.skills) {
 				var intxp = parseInt(data.skills[key].xp);
-					if(intxp < xp99) {
-						var diff = xp99 - intxp
+
+					if (key === 'dungeoneering' && form[0].dung.checked && intxp < xp120) {
+						var diff = xp120 - intxp;
+						xptomax += diff;
+						getListItem(key,diff.toLocaleString()).appendTo(results);
+					} else if(intxp < xp99) {
+						var diff = xp99 - intxp;
 						xptomax += diff;
 						getListItem(key,diff.toLocaleString()).appendTo(results);
 					}
