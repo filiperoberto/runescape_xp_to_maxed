@@ -1,0 +1,8 @@
+#results strong {
+	text-transform: capitalize;
+}
+
+#results strong:after {
+	content:":";
+	margin-right: 5px;
+}

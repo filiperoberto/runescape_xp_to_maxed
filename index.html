@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>XP to Maxed</title>
 	<link rel="stylesheet" href="http://genealogiabiblica.com.br/files/layouts/css/theme/lumen/bootstrap.min.css">
-	<!--<script src='script/zepto.min.js'></script>-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script src='script/zepto.min.js'></script>
 	<script src='script/script.js'></script>
 </head>
 <body>
@@ -19,11 +19,20 @@
 					<label for="rsname">RS Name</label>
 					<input type="text" id="rsname" name="rsname" class='form-control'/>
 				</div>
+				<div class="radio">		
+					<input id='radio' type="radio" name="dung" value="dung"> Include 120 Dungeonering
+				</div>
 				<div class="form-group">
 					<input class='btn btn-default' type="submit" value="Submit"/>
 				</div>			
 			</form>
-			<div class="alert alert-info" id='alert'>lalala</div>	
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					Results
+				</div>
+				<ul class='list-group' id='results'>
+				</ul>
+			</div>
 		</div>
 	</div>
 </body>
