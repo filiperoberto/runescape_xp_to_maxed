@@ -1,10 +1,11 @@
 $(document).ready(function(){
 
 	var results = $('#results');
+	var form = $("#form");
 
 	function updateValues() {
 
-		var rsName = this.rsname.value;
+		var rsName = form[0].rsname.value;
 
 		if(!rsName)
 			return false;
@@ -27,8 +28,8 @@ $(document).ready(function(){
 		});
 	}
 
-	$("#form").submit(updateValues);
-	$("radio").change(updateValues);
+	form.submit(updateValues);
+	$("#checkbox").change(updateValues);
 
 	function getListItem(key,value) {
 		var item = $('<li>',{'class':'list-group-item','text':value});
