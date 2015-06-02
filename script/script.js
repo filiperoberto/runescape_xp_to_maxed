@@ -23,23 +23,26 @@ $(document).ready(function(){
 					if (key === 'dungeoneering' && form[0].dung.checked && intxp < xp120) {
 						var diff = xp120 - intxp;
 						xptomax += diff;
-						getListItem(key,diff.toLocaleString()).appendTo(results);
+						getListItem(key,diff.toLocaleString(),"xp to level 120").appendTo(results);
 					} else if(intxp < xp99) {
 						var diff = xp99 - intxp;
 						xptomax += diff;
-						getListItem(key,diff.toLocaleString()).appendTo(results);
+						getListItem(key,diff.toLocaleString(),"xp to level 99").appendTo(results);
 					}
 			}
-			getListItem('Total',xptomax.toLocaleString()).prependTo(results);
+			getListItem('Total',xptomax.toLocaleString(),"xp to maxed").prependTo(results);
 		});
 	}
 
 	form.submit(updateValues);
 	$("#checkbox").change(updateValues);
 
-	function getListItem(key,value) {
+	function getListItem(key,value,after) {
 		var item = $('<li>',{'class':'list-group-item','text':value});
 		$('<strong>',{'text':key}).prependTo(item);
+		if(after) {
+			$('<small>',{'text':after}).appendTo(item);
+		}
 		return item;
 	};
 });

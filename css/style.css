@@ -6,3 +6,8 @@
 	content:":";
 	margin-right: 5px;
 }
+
+#results small {
+	margin-left: 3px;
+	text-transform: capitalize;
+}
