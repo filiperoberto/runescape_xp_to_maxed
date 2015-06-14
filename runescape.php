@@ -13,7 +13,7 @@ function getStats($name) {
 						"Herblore", "Agility", "Thieving",
 						"Slayer", "Farming", "Runecrafting",
 						"Hunter", "Construction", "Summoning",
-						"Dungeoneering"
+						"Dungeoneering","Divination"
 						),
 				"minigames" => array(
 						"Duel Tournaments", "Bounty Hunters",
@@ -25,12 +25,12 @@ function getStats($name) {
 		);
 		$name = strtolower($name);
 		$connection = fopen('http://hiscore.runescape.com/index_lite.ws?player='.$name, 'rb');
-		if($http_response_header[0] === 'HTTP/1.1 200 OK') {
+		if($http_response_header[0] === 'HTTP/1.0 200 OK') {
 			$data = stream_get_contents($connection);
 			$data = explode("\n", $data);
 			$overall = explode(',', $data[0]);
 			$stats['overall'] = array("Rank" => $overall[0], "Level" => $overall[1], "XP" => $overall[2]);
-			for($i = 0; $i < 25; $i++) {
+			for($i = 0; $i < 26; $i++) {
 				$cItem = $hiscores['stats'][$i];
 				$num = explode(',', $data[$i+1]);
 				$stats['skills'][$cItem] = array("Rank" => $num[0], "Level" => $num[1], "XP" => $num[2]);
