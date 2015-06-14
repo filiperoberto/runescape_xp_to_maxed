@@ -25,7 +25,7 @@ function getStats($name) {
 		);
 		$name = strtolower($name);
 		$connection = fopen('http://hiscore.runescape.com/index_lite.ws?player='.$name, 'rb');
-		if($http_response_header[0] === 'HTTP/1.0 200 OK') {
+		if(strpos($http_response_header[0],'200') !== false) {
 			$data = stream_get_contents($connection);
 			$data = explode("\n", $data);
 			$overall = explode(',', $data[0]);
